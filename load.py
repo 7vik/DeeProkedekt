@@ -1,21 +1,25 @@
 ######## To load the image dataset, and keep it ready to be fed to the model.
 
-
-# convert image to numpy ndarray img (x,31,3)
 from matplotlib.image import imread
-img = imread('image')
-print(type(img))
-print(img.shape)
+import numpy as np
+import os
 
-## Zero padding all to the same size
-result = np.zeros(b.shape)
-result[:a.shape[0],:a.shape[1]] = a
-print(result)
+path = "/home/satvikg/dataset/test/"
+num = len(os.listdir(path))
+result = np.zeros((num,31,256,3))
+i = 0
+
+for image in os.listdir(path):
+        img = imread(path+image)
+        result[i,:img.shape[0],:img.shape[1],:img.shape[2]] = img
+
+np.save("X_train", result)
+print("Success. Saved np ndarray with shape:")
+print(result.shape)
+
 
 ## To store the numpy arrays 
-import numpy as np
-np.save("filename", npndarray)
 #to load it:
-i = np.load("filename")
+#i = np.load("filename")
 
 
