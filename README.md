@@ -4,6 +4,7 @@ The second version of Prokedekt, which used Deep Learning to recognize text from
 ## Tasks:
 * The [dataset](http://www.robots.ox.ac.uk/~vgg/data/text/) used for training.
 * Clean the dataset.
+* Convert images to np arrays of the same size.
 * Create ground truth file (output layer)
 * Create train/dev/test sets. 
 * Make minibatches of train set. 
