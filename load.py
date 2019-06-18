@@ -11,13 +11,15 @@ def make_X(directory, case):
 
         for image in sorted(os.listdir(directory)):
                 img = imread(directory+image)
-                result[i,:img.shape[0],:img.shape[1],:img.shape[2]] = img
+                result[i,:min(31,img.shape[0]),:img.shape[1],:img.shape[2]] = img[:31,:256]
                 i = i+1
 
         if case=="test":
                 np.save("/home/satvikg/dataset/X_test", result)
         elif case=="train":
                 np.save("/home/satvikg/dataset/X_train", result)
+        else:
+                np.save("/home/satvikg/DeeProkedekt/temp/checkpad", result)
     
         print("Success. Saved np ndarray with shape:")
         print(result.shape)
@@ -56,6 +58,6 @@ def make_Y(directory, case):
 #i = np.load("filename")
 
 if __name__=="__main__":
-        make_Y("/home/satvikg/dataset/test", "test")
-        make_Y("/home/satvikg/dataset/train", "train")
-
+#        make_Y("/home/satvikg/dataset/test", "test")
+#        make_Y("/home/satvikg/dataset/train", "train")
+        make_X("/home/satvikg/mnt/ramdisk/max/90kDICT32px/666/7/", "testing padding")	
