@@ -45,14 +45,17 @@ def make_Y(directory, case):
                 m += 1
 
         if case=="test":
-                        np.save("/home/satvikg/dataset/Y_test", Y)
-                elif case=="train":
-                        np.save("/home/satvikg/dataset/Y_train", Y)
+                np.save("/home/satvikg/dataset/Y_test", Y)
+        elif case=="train":
+                np.save("/home/satvikg/dataset/Y_train", Y)
         
-                print("Success. Saved np ndarray with shape:")
-                print(Y.shape)
+        print("Success. Saved np ndarray with shape:")
+        print(Y.shape)
 
 #to load it:
 #i = np.load("filename")
 
+if __name__=="__main__":
+        make_Y("/home/satvikg/dataset/test", "test")
+        make_Y("/home/satvikg/dataset/train", "train")
 
