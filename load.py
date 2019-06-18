@@ -60,4 +60,4 @@ def make_Y(directory, case):
 if __name__=="__main__":
 #        make_Y("/home/satvikg/dataset/test", "test")
 #        make_Y("/home/satvikg/dataset/train", "train")
-        make_X("/home/satvikg/mnt/ramdisk/max/90kDICT32px/666/7/", "testing padding")	
+#        make_X("/home/satvikg/mnt/ramdisk/max/90kDICT32px/666/7/", "testing padding")	
