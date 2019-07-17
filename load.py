@@ -11,7 +11,7 @@ def make_X(directory, case):
 
         for image in sorted(os.listdir(directory)):
                 img = imread(directory+image)
-                result[i,:min(31,img.shape[0]),:img.shape[1],:img.shape[2]] = img[:31,:256]
+                result[i,:img.shape[0],:img.shape[1],:img.shape[2]] = img[:31,:min(256,img.shape[1]),:3]
                 i = i+1
 
         if case=="test":
@@ -26,24 +26,14 @@ def make_X(directory, case):
 
 def make_Y(directory, case):
         num = len(os.listdir(directory))
-        Y = np.zeros((num,494))
+        Y = np.zeros((num,26))
         m = 0
         for image in sorted(os.listdir(directory)):
-                a = image.find('_')
-                b = image.rfind('_')
-                name = image[a+1:b]
-
-                for i in range(0,min(len(name),13)):
-                        Y[m][38*i] = 1
-                        char = name[i]
-                        if char.isdigit():
-                                x=int(char)
-                                Y[m][38*i+x+1] = 1
-                        if char.isalpha():
-                                char = char.lower()
-                                Y[m][38*i+ord(char)-ord('a')+11] = 1
-                        else:
-                                Y[m][38*i+37] = 1
+                temp = ord(image.split('_')[1][0])
+                if temp >= ord('a'):
+                        Y[m][temp-ord('a')] = 1
+                else:
+                        Y[m][temp-ord('A')] = 1
                 m += 1
 
         if case=="test":
@@ -58,6 +48,7 @@ def make_Y(directory, case):
 #i = np.load("filename")
 
 if __name__=="__main__":
-#        make_Y("/home/satvikg/dataset/test", "test")
-#        make_Y("/home/satvikg/dataset/train", "train")
-#        make_X("/home/satvikg/mnt/ramdisk/max/90kDICT32px/666/7/", "testing padding")	
+        make_Y("/home/satvikg/dataset/test/", "test")
+        make_Y("/home/satvikg/dataset/train/", "train")
+        make_X("/home/satvikg/dataset/test/", "test")	
+        make_X("/home/satvikg/dataset/train/", "train")	
