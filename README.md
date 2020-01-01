@@ -7,10 +7,10 @@ The second version of Prokedekt, which used Deep Learning to recognize text from
 * [DONE] Convert images to np arrays of the same size.
 * [DONE] Create ground truth file (output layer)
 * [DONE] Create train/dev/test sets. 
-* Make minibatches of train set. 
-* Learn Keras to build a basic CNN.
-* Train it and check results on the test set. 
-* Document the results of different models and choose the best working model. (CNN, RNN, Adam, ResNet, Inception, etc)
+* [DONE] Make minibatches of train set. 
+* [DONE] Learn Keras to build a basic CNN.
+* [DONE] Train it and check results on the test set. 
+* [DONE] Document the results of different models and choose the best working model. (CNN, RNN, Adam, ResNet, Inception, etc)
 * Fine tune hyperparameters.
 
 
